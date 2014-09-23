@@ -2,7 +2,6 @@ package ua.natl.CSPreadingFromFile;
 
 import java.io.File;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class ReadingFromFile {
@@ -10,21 +9,28 @@ public class ReadingFromFile {
 	static Scanner scn;
 
 	public static void main(String[] args) {
-		
 		openFile();
 		readFile();
 		out();
-
 	}
 
 	private static void out() {
-		
-		
+		for(int row=0;row<m.length;row++){
+			for(int col=0;col<m[row].length;col++){
+				System.out.print(m[row][col] + "   ");
+			}
+			System.out.println();
+		}
 	}
 
 	private static void readFile() {
-		
-		
+		while(scn.hasNext()){
+			for(int row=0;row<m.length;row++){
+				for(int col=0;col<m[row].length;col++){
+					m[row][col] = scn.next();
+				}
+			}
+		}
 	}
 
 	private static void openFile() {
