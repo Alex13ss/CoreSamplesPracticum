@@ -1,4 +1,4 @@
-package ua.natl.SCPsynchroThread;
+package ua.natl.CSPsynchroThread;
 
 public class Worker implements Runnable {
 
