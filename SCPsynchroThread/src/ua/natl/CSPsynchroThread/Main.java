@@ -1,4 +1,4 @@
-package ua.natl.SCPsynchroThread;
+package ua.natl.CSPsynchroThread;
 
 public class Main {
 	private static int number; 
@@ -13,9 +13,8 @@ public class Main {
 			t1.join();
 			t2.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
 		System.out.println(number);
 	}
 	
