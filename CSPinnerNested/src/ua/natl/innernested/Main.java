@@ -13,6 +13,5 @@ public class Main {
 		
 		MyTest.MyInner inner = test.new MyInner();
 		inner.innerShow();
-		
 	}
 }
