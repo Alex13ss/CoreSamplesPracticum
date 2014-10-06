@@ -1,6 +1,6 @@
 package ua.natl.geometrytest;
 
-public class Dot extends Figure {
+public class Dot extends Figure implements Moveable {
 	
 	int x, y;
 
@@ -36,5 +36,10 @@ public class Dot extends Figure {
 	@Override
 	public String toString() {
 		return "Dot: (" + x + ", " + y + ")";
+	}
+	@Override
+	public void move(int x, int y) {
+		this.x += x;
+		this.y += y;
 	}
 }

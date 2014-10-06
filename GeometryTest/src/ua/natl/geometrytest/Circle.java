@@ -1,6 +1,6 @@
 package ua.natl.geometrytest;
 
-public class Circle extends Figure {
+public class Circle extends Figure implements Scaleable, Moveable {
 
 	private Dot center;
 	private int radius;
@@ -54,5 +54,15 @@ public class Circle extends Figure {
 	public String toString() {
 		return String.format("Circle (" + getX() + ", " 
 				+ getY() + "), radius: " + getRadius());
+	}
+
+	@Override
+	public void scale(double s) {
+		radius *= s;
+	}
+
+	@Override
+	public void move(int x, int y) {
+		center.move(x, y);
 	}
 }

@@ -2,7 +2,7 @@ package ua.natl.geometrytest;
 
 import java.util.ArrayList;
 
-public class Figure {
+public abstract class Figure {
 	
 	private static ArrayList<Figure> figures = new ArrayList<Figure>();
 	
@@ -11,12 +11,17 @@ public class Figure {
 		//System.out.println("Figure constructor.");
 	}
 	
-	public void draw() {
+	public abstract void draw(); /*{
 		System.out.println("Figure show.");
-	}
+	}*/
 	
 	public static void drawScene() {
 		for (Figure f : figures)
 			f.draw();
+	}
+	public static void scaleScene(double n) {
+		for (Figure f : figures)
+			if (f instanceof Scaleable)
+				((Scaleable)f).scale(n);
 	}
 }
