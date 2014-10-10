@@ -6,11 +6,9 @@ import java.util.Date;
 public class FilelvlMain {
 	public static void showDir(File f, int level) {
 		if (f.isDirectory()) {
-			//String margin = new String();
-			//margin.
 			StringBuilder sb = new StringBuilder();
 			for (int i=0; i<level; i++)
-				sb.append(" ");
+				sb.append("   ");
 			System.out.printf("%s%s\n", sb.toString(), f.getName().toUpperCase());
 			File[] files = f.listFiles();
 			for (File file : files) {
@@ -20,8 +18,7 @@ public class FilelvlMain {
 			for (File file : files) {
 				if (file.isFile()) {
 					System.out.printf("%s%s%s %s\n", 
-							sb.toString(), 
-							sb.toString(), 
+							sb.toString(), "   ", 
 							file.getName().toLowerCase(), 
 							(new Date(file.lastModified())).toLocaleString());
 				}
