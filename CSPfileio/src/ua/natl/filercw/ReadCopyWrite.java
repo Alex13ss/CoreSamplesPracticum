@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.RandomAccessFile;
 
 public class ReadCopyWrite {
 	public static final String sourceFileName = "source.txt";
@@ -32,6 +33,22 @@ public class ReadCopyWrite {
 			writer.close();
 			System.out.printf("Chars copied: %d\nWords copied: %d\nLines copied: %d\n",
 					chars, words, lines);
+			
+			System.out.println("*************");
+			
+			RandomAccessFile raf = new RandomAccessFile(sourceFile, "rw");
+			//System.out.println(raf.length());
+			raf.seek(raf.length());
+			//String s = raf.readUTF();
+			
+			String s = "\nHappy End!";
+			raf.write(s.getBytes("UTF-8"));
+			
+			//raf.writeUTF("Happy end!");
+			
+			raf.close();
+			
+			//System.out.println(s);
 		}
 	}
 }
