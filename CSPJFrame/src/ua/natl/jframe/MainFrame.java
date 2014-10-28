@@ -46,9 +46,8 @@ public class MainFrame extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.BLUE);
 		
-		JButton b = new JButton();
+		JButton b = new JButton("Go-go-go");
 		b.setBackground(Color.YELLOW);
-		b.setText("Go-go-go");
 		
 		contentPane.add(p, BorderLayout.NORTH);
 		contentPane.add(b, BorderLayout.WEST);
