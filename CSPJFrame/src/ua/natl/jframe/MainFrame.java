@@ -9,8 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -24,6 +27,7 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField t;
 	private JTextArea a;
+	private DefaultListModel model;
 
 	public static void main(String[] args) {
 
@@ -61,6 +65,9 @@ public class MainFrame extends JFrame {
 				a.setText(t.getText());
 				a.setBackground(new Color(255, 155, 10));
 				System.out.println(e.getSource());
+				
+				model.addElement("CCC");
+				
 			}
 		});
 		
@@ -81,7 +88,13 @@ public class MainFrame extends JFrame {
 			}
 		});
 		
-		contentPane.add(new JButton(action), BorderLayout.EAST);
+		JList list = new JList();
+		list.setPreferredSize(new Dimension(100, 15));
+		contentPane.add(list, BorderLayout.EAST);
+		model = new DefaultListModel();
+		list.setModel(model);
+		model.addElement("AAA");
+		model.addElement("BBB");
 		
 	}
 }
