@@ -3,7 +3,6 @@ package ua.natl.mycalculator;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -66,6 +65,18 @@ public class Calculator {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
+		
+		CalculatorEngine calcEngine = new CalculatorEngine(this);
+		for (int i = 0; i < 10; i++) {
+			button[i].addActionListener(calcEngine);
+		}
+		buttonPoint.addActionListener(calcEngine);
+		buttonEqual.addActionListener(calcEngine);
+		buttonPlus.addActionListener(calcEngine);
+		buttonMinus.addActionListener(calcEngine);
+		buttonMul.addActionListener(calcEngine);
+		buttonDiv.addActionListener(calcEngine);
+		
 		
 	}
 	
