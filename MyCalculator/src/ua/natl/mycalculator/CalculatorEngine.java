@@ -9,7 +9,9 @@ import javax.swing.JOptionPane;
 public class CalculatorEngine implements ActionListener {
 	
 	Calculator parent;
-	public CalculatorEngine(Calculator parent) {
+	char selectedAction = ' ';
+	double currentResault = 0;
+	CalculatorEngine(Calculator parent) {
 		this.parent = parent;
 	}
 
@@ -18,9 +20,48 @@ public class CalculatorEngine implements ActionListener {
 		
 		JButton clickedButton = (JButton)e.getSource();
 		String dispFieldText = parent.displayField.getText();
-		String clickedButtonLabel = clickedButton.getText();
-		parent.displayField.setText(dispFieldText + clickedButtonLabel);
-
+		double displayValue = 0;
+		if (!"".equals(dispFieldText)) {
+			displayValue = Double.parseDouble(dispFieldText);
+		}
+		
+		Object src = e.getSource();
+		
+		if (src == parent.buttonPlus) {
+			selectedAction = '+';
+			currentResault = displayValue;
+			parent.displayField.setText("");
+		} else if (src == parent.buttonMinus) {
+			selectedAction = '-';
+			currentResault = displayValue;
+			parent.displayField.setText("");
+		} else if (src == parent.buttonDiv) {
+			selectedAction = '/';
+			currentResault = displayValue;
+			parent.displayField.setText("");
+		} else if (src == parent.buttonMul) {
+			selectedAction = '*';
+			currentResault = displayValue;
+			parent.displayField.setText("");
+		} else if (src == parent.buttonEqual) {
+			if (selectedAction == '+') {
+				currentResault += displayValue;
+				parent.displayField.setText("" + currentResault);
+			} else if (selectedAction == '-') {
+				currentResault -= displayValue;
+				parent.displayField.setText("" + currentResault);
+			} else if (selectedAction == '/') {
+				currentResault /= displayValue;
+				parent.displayField.setText("" + currentResault);
+			} else if (selectedAction == '*') {
+				currentResault *= displayValue;
+				parent.displayField.setText("" + currentResault);
+			}
+		} else {
+			String clickedButtonLabel = clickedButton.getText();
+			parent.displayField.setText(dispFieldText + clickedButtonLabel);
+		}
+		
 	}
 
 }

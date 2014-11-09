@@ -17,6 +17,10 @@ public class Calculator {
 	JButton buttonPoint;
 	JButton buttonEqual;
 	JPanel p1;
+	JButton buttonPlus;
+	JButton buttonMinus;
+	JButton buttonMul;
+	JButton buttonDiv;
 	
 	Calculator() {
 		
@@ -49,13 +53,13 @@ public class Calculator {
 		JPanel p2 = new JPanel();
 		GridLayout glP2 = new GridLayout(4, 1);
 		p2.setLayout(glP2);
-		JButton buttonPlus = new JButton("+");
+		buttonPlus = new JButton("+");
 		p2.add(buttonPlus);
-		JButton buttonMinus = new JButton("-");
+		buttonMinus = new JButton("-");
 		p2.add(buttonMinus);
-		JButton buttonMul = new JButton("*");
+		buttonMul = new JButton("*");
 		p2.add(buttonMul);
-		JButton buttonDiv = new JButton("/");
+		buttonDiv = new JButton("/");
 		p2.add(buttonDiv);
 		windowContent.add("East", p2);
 		
