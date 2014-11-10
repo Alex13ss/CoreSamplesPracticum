@@ -21,12 +21,14 @@ public class Calculator {
 	JButton buttonMinus;
 	JButton buttonMul;
 	JButton buttonDiv;
+	JButton buttonClr;
 	
 	Calculator() {
 		
 		windowContent = new JPanel();
 		BorderLayout bl = new BorderLayout();
 		windowContent.setLayout(bl);
+		
 		displayField = new JFormattedTextField();
 		displayField.setPreferredSize(new Dimension(250, 25));
 		displayField.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -63,6 +65,13 @@ public class Calculator {
 		p2.add(buttonDiv);
 		windowContent.add("East", p2);
 		
+		JPanel p3 = new JPanel();
+		GridLayout glP3 = new GridLayout(1, 3);
+		p3.setLayout(glP3);
+		buttonClr = new JButton("Clr");
+		p3.add(buttonClr);
+		windowContent.add("West", p3);
+		
 		JFrame frame = new JFrame("Calculator");
 		frame.setContentPane(windowContent);
 		frame.pack();
@@ -80,7 +89,7 @@ public class Calculator {
 		buttonMinus.addActionListener(calcEngine);
 		buttonMul.addActionListener(calcEngine);
 		buttonDiv.addActionListener(calcEngine);
-		
+		buttonClr.addActionListener(calcEngine);
 		
 	}
 	

@@ -2,7 +2,6 @@ package ua.natl.mycalculator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -51,12 +50,21 @@ public class CalculatorEngine implements ActionListener {
 				currentResault -= displayValue;
 				parent.displayField.setText("" + currentResault);
 			} else if (selectedAction == '/') {
-				currentResault /= displayValue;
-				parent.displayField.setText("" + currentResault);
+				if (displayValue == 0) {
+					JOptionPane.showMessageDialog(null, "You can't divide by zero!", "Shit happens...", 2);
+				} else {
+					currentResault /= displayValue;
+					parent.displayField.setText("" + currentResault);
+				}
 			} else if (selectedAction == '*') {
 				currentResault *= displayValue;
 				parent.displayField.setText("" + currentResault);
 			}
+		} else if (src == parent.buttonClr) {
+			selectedAction = ' ';
+			currentResault = 0;
+			displayValue = 0;
+			parent.displayField.setText("");
 		} else {
 			String clickedButtonLabel = clickedButton.getText();
 			parent.displayField.setText(dispFieldText + clickedButtonLabel);
