@@ -65,10 +65,18 @@ public class CalculatorEngine implements ActionListener {
 			currentResault = 0;
 			displayValue = 0;
 			parent.displayField.setText("");
+		} else if (src == parent.buttonPoint) {
+			if (dispFieldText.isEmpty()) {
+				parent.displayField.setText("0.");
+			} else if (dispFieldText.indexOf('.', 0) > 0) {
+				JOptionPane.showMessageDialog(null, "I can't accept one more dot!", "Not so fast!", 2);
+			} else {
+				parent.displayField.setText(dispFieldText + ".");
+			}
 		} else {
 			String clickedButtonLabel = clickedButton.getText();
 			parent.displayField.setText(dispFieldText + clickedButtonLabel);
-		}
+		} 
 		
 	}
 
