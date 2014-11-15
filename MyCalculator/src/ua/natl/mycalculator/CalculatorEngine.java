@@ -2,6 +2,7 @@ package ua.natl.mycalculator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -21,7 +22,12 @@ public class CalculatorEngine implements ActionListener {
 		String dispFieldText = parent.displayField.getText();
 		double displayValue = 0;
 		if (!"".equals(dispFieldText)) {
-			displayValue = Double.parseDouble(dispFieldText);
+			try {
+				displayValue = Double.parseDouble(dispFieldText);
+			} catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(null, "Enter a NUMBER!!!", "Bad idea...", 2);
+				return;
+			}
 		}
 		
 		Object src = e.getSource();
