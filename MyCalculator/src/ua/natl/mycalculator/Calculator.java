@@ -22,6 +22,7 @@ public class Calculator {
 	JButton buttonMul;
 	JButton buttonDiv;
 	JButton buttonClr;
+	JButton buttonXZ;
 	
 	Calculator() {
 		
@@ -66,10 +67,12 @@ public class Calculator {
 		windowContent.add("East", p2);
 		
 		JPanel p3 = new JPanel();
-		GridLayout glP3 = new GridLayout(1, 3);
+		GridLayout glP3 = new GridLayout(2, 1);
 		p3.setLayout(glP3);
 		buttonClr = new JButton("Clr");
 		p3.add(buttonClr);
+		buttonXZ = new JButton("XZ");
+		p3.add(buttonXZ);
 		windowContent.add("West", p3);
 		
 		JFrame frame = new JFrame("Calculator");
