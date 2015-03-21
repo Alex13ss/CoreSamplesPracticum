@@ -8,6 +8,13 @@ public class Employee {
     private double salary;
     private int id;
 
+    public Employee() {
+    }
+
+    public Employee(double s) {
+        this("Employee # " + nextId, s);
+    }
+
     public Employee(String n, double s) {
         this.name = n;
         this.salary = s;
